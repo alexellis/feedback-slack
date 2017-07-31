@@ -1,0 +1,16 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+   dockerbot:
+     lang: node
+     handler: ./forward_slack
+     image: alexellis2/forward_slack
+     environment:
+       slack_name: "docker-bot"
+       slack_incoming_hook: ""
+  github_gazing:
+    lang: python
+    handler: ./github_gazing
+    image: alexellis2/faas_github_gazing
